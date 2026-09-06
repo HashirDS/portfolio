@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { ArrowRight, Menu, Moon, Sun, X } from 'lucide-react'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -11,8 +12,8 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     const onResize = () => {
-      setIsMobile(window.innerWidth < 768)
-      if (window.innerWidth >= 768) setMenuOpen(false)
+      setIsMobile(window.innerWidth < 1000)
+      if (window.innerWidth >= 1000) setMenuOpen(false)
     }
     window.addEventListener('scroll', onScroll)
     window.addEventListener('resize', onResize)
@@ -28,8 +29,10 @@ export default function Navbar() {
 
   const links = [
     { label: 'Home', href: '#home' },
+    { label: 'Research', href: '#research' },
     { label: 'Experience', href: '#experience' },
     { label: 'Projects', href: '#projects' },
+    { label: 'Awards', href: '#awards' },
     { label: 'Certifications', href: '#certifications' },
   ]
 
@@ -55,7 +58,7 @@ export default function Navbar() {
             boxShadow: '0 0 14px rgba(56,189,248,0.3)',
           }}>AM</div>
           <div>
-            <div style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.02em', lineHeight: 1.1 }}>Ashir Mehfooz</div>
+            <div style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.02em', lineHeight: 1.1 }}>Asher Mehfooz</div>
             {!isMobile && <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--text3)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>AI Developer</div>}
           </div>
         </div>
@@ -72,14 +75,14 @@ export default function Navbar() {
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--text2)')}
               >{link.label}</a>
             ))}
-            <button onClick={toggleTheme} style={{
+            <button onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} style={{
               width: '34px', height: '34px', borderRadius: '8px',
               border: '1px solid var(--border2)', background: 'var(--surface)',
               cursor: 'pointer', fontSize: '15px',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               transition: 'all 0.2s', color: 'var(--text2)',
             }}>
-              {theme === 'dark' ? '☀️' : '🌙'}
+              {theme === 'dark' ? <Sun size={16} aria-hidden="true" /> : <Moon size={16} aria-hidden="true" />}
             </button>
             <a href="#contact" style={{
               fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 600,
@@ -90,37 +93,26 @@ export default function Navbar() {
             }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 0 28px rgba(56,189,248,0.45)' }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 0 18px rgba(56,189,248,0.25)' }}
-            >Contact →</a>
+            >Contact <ArrowRight size={15} aria-hidden="true" /></a>
           </div>
         )}
 
         {/* Mobile right side */}
         {isMobile && (
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <button onClick={toggleTheme} style={{
+            <button onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} style={{
               width: '34px', height: '34px', borderRadius: '8px',
               border: '1px solid var(--border2)', background: 'var(--surface)',
               cursor: 'pointer', fontSize: '14px',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}>{theme === 'dark' ? '☀️' : '🌙'}</button>
-            <button onClick={() => setMenuOpen(!menuOpen)} style={{
+            }}>{theme === 'dark' ? <Sun size={16} aria-hidden="true" /> : <Moon size={16} aria-hidden="true" />}</button>
+            <button onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} style={{
               width: '34px', height: '34px', borderRadius: '8px',
               border: '1px solid var(--border2)', background: 'var(--surface)',
               cursor: 'pointer', display: 'flex', flexDirection: 'column',
               alignItems: 'center', justifyContent: 'center', gap: '5px', padding: '8px',
             }}>
-              {[0,1,2].map(i => (
-                <span key={i} style={{
-                  display: 'block', width: '18px', height: '1.5px',
-                  background: 'var(--text2)', borderRadius: '2px',
-                  transition: 'all 0.2s',
-                  transform: menuOpen
-                    ? i === 0 ? 'rotate(45deg) translate(4px, 4px)'
-                    : i === 2 ? 'rotate(-45deg) translate(4px, -4px)'
-                    : 'scaleX(0)'
-                    : 'none',
-                }} />
-              ))}
+              {menuOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
             </button>
           </div>
         )}
@@ -155,7 +147,7 @@ export default function Navbar() {
               background: 'linear-gradient(135deg, var(--accent), var(--accent-purple))',
               color: '#fff', fontFamily: 'var(--font-sans)', fontSize: '14px', fontWeight: 600,
               textDecoration: 'none',
-            }}>Contact →</a>
+            }}>Contact <ArrowRight size={15} aria-hidden="true" /></a>
           </div>
         </div>
       )}

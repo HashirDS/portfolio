@@ -5,7 +5,7 @@ import { useState } from 'react'
 const PROJECTS = [
   {
     name: 'Smart Animated Tutor for Kids',
-    origin: 'Thesis — University of Kotli AJK',
+    origin: 'Thesis, University of Kotli AJK',
     cat: 'AI/LLM',
     featured: true,
     desc: 'Web-based AI tutoring system for children aged 3–6 combining fine-tuned LLMs (Phi-2, LLaMA 3), 3D animated avatars, text-to-speech, and a teacher dashboard for personalised content.',
@@ -13,8 +13,8 @@ const PROJECTS = [
     link: '#',
   },
   {
-    name: 'Pulisint — Sentiment Analysis Platform',
-    origin: 'Robx.AI — Professional',
+    name: 'Pulisint, Sentiment Analysis Platform',
+    origin: 'Robx.AI, Professional',
     cat: 'AI/LLM',
     featured: true,
     desc: 'Live sentiment analysis dashboard that scrapes data from multiple sources and runs it through an LLM pipeline to surface real-time structured insights on a dynamic web interface.',
@@ -22,8 +22,8 @@ const PROJECTS = [
     link: '#',
   },
   {
-    name: 'Humint — Social Media Intelligence',
-    origin: 'Robx.AI — Professional',
+    name: 'Humint, Social Media Intelligence',
+    origin: 'Robx.AI, Professional',
     cat: 'AI/LLM',
     featured: false,
     desc: 'Web app that collects public profile data across social platforms, processes it through LLM pipelines, and displays structured intelligence via Nadara API integration.',
@@ -35,7 +35,7 @@ const PROJECTS = [
     origin: 'Professional Project',
     cat: 'AI/LLM',
     featured: false,
-    desc: 'Fine-tuned LLMs for domain-specific tasks and integrated them into web-based applications via APIs — covering model adaptation through to production deployment.',
+    desc: 'Fine-tuned LLMs for domain-specific tasks and integrated them into web-based applications via APIs, covering model adaptation through to production deployment.',
     stack: ['LLMs','Fine-Tuning','Flask','REST API'],
     link: '#',
   },
@@ -49,8 +49,8 @@ const PROJECTS = [
     link: '#',
   },
   {
-    name: 'Fertiliser Recommendation — Edge ML',
-    origin: 'XactGen — Client Project',
+    name: 'Fertiliser Recommendation, Edge ML',
+    origin: 'XactGen, Client Project',
     cat: 'ML',
     featured: true,
     desc: 'ML-based fertiliser recommendation system deployed on an edge device for low-connectivity agricultural field use. Takes soil and crop parameters, outputs actionable recommendations.',
@@ -58,8 +58,8 @@ const PROJECTS = [
     link: '#',
   },
   {
-    name: 'Virtual Try Room — Browser Extension',
-    origin: 'XactGen — Client Project',
+    name: 'Virtual Try Room, Browser Extension',
+    origin: 'XactGen, Client Project',
     cat: 'Product',
     featured: true,
     desc: 'AI-powered browser extension allowing users to upload a garment and personal photo to virtually try on clothing. Delivered end-to-end for a client.',
@@ -68,7 +68,7 @@ const PROJECTS = [
   },
   {
     name: 'Telco Customer Churn Prediction',
-    origin: 'Kaggle — kaggle.com/ashirzaki',
+    origin: 'Kaggle, kaggle.com/ashirzaki',
     cat: 'ML',
     featured: false,
     desc: 'Predictive system identifying customers at risk of churning. Covers data cleaning, EDA, feature engineering, and classification model evaluation.',
@@ -76,8 +76,8 @@ const PROJECTS = [
     link: 'https://kaggle.com/ashirzaki',
   },
   {
-    name: 'NYC Taxi Fare — PySpark',
-    origin: 'Kaggle — kaggle.com/ashirzaki',
+    name: 'NYC Taxi Fare, PySpark',
+    origin: 'Kaggle, kaggle.com/ashirzaki',
     cat: 'ML',
     featured: false,
     desc: 'Distributed ML regression pipeline built with PySpark on the NYC Taxi Fare dataset, demonstrating big data modelling at scale with Apache Spark.',
@@ -89,9 +89,9 @@ const PROJECTS = [
     origin: 'Kaggle',
     cat: 'ML',
     featured: false,
-    desc: 'Classification model on the Titanic dataset — missing value handling, feature engineering, and model evaluation using standard supervised learning metrics.',
+    desc: 'Classification model on the Titanic dataset, including missing value handling, feature engineering, and model evaluation using standard supervised learning metrics.',
     stack: ['Python','Scikit-learn','Classification'],
-    link: '#',
+    link: 'https://github.com/HashirDS/EDA-and-Visualization-of-a-Titanic-Dataset',
   },
   {
     name: 'Pakistan Sentiment Analysis Dashboard',
@@ -104,10 +104,10 @@ const PROJECTS = [
   },
   {
     name: 'Statistical Analysis & Visualisation',
-    origin: 'DatixAI — Freelance Client',
+    origin: 'DatixAI, Freelance Client',
     cat: 'Data',
     featured: false,
-    desc: 'Complete statistical analysis and visualisation project for a client — R and SPSS for data processing and hypothesis testing, Tableau for interactive dashboards.',
+    desc: 'Complete statistical analysis and visualisation project for a client, using R and SPSS for data processing and hypothesis testing, plus Tableau for interactive dashboards.',
     stack: ['R','SPSS','Tableau','Data Reporting'],
     link: '#',
   },
@@ -116,13 +116,13 @@ const PROJECTS = [
     origin: 'Freelance Client Project',
     cat: 'Product',
     featured: false,
-    desc: 'Structured relational database in Microsoft Access for a client — schema design, data entry forms, queries, and reporting tailored to their data management needs.',
+    desc: 'Structured relational database in Microsoft Access for a client, including schema design, data entry forms, queries, and reporting tailored to their data management needs.',
     stack: ['MS Access','Database Design','SQL'],
     link: '#',
   },
   {
-    name: 'Keyboard Device Driver — Windows',
-    origin: 'University — OS Coursework',
+    name: 'Keyboard Device Driver, Windows',
+    origin: 'University, OS Coursework',
     cat: 'Product',
     featured: false,
     desc: 'Basic Windows keyboard device driver handling input events, demonstrating low-level hardware-to-OS interaction and system-level programming concepts.',
@@ -217,6 +217,7 @@ export default function Projects() {
 
         {/* Grid */}
         <div
+          className="projects-grid-wrap"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',

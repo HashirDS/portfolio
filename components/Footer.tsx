@@ -35,27 +35,33 @@ export default function Footer() {
         color: 'var(--text3)',
         letterSpacing: '0.05em',
       }}>
-        © 2026 Ashir Mehfooz
+        © 2026 Asher Mehfooz. All rights reserved.
       </span>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <a href="https://github.com/HashirDS" target="_blank" rel="noreferrer"
+          style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text3)', textDecoration: 'none', letterSpacing: '0.05em', transition: 'color 0.2s' }}
+          onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
+          onMouseLeave={e => (e.currentTarget.style.color = 'var(--text3)')}
+        >GitHub</a>
+        <span style={{ color: 'var(--border2)' }}>·</span>
+        <a href="https://www.linkedin.com/in/ashir-mehfooz-a7625231b/" target="_blank" rel="noreferrer"
+          style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text3)', textDecoration: 'none', letterSpacing: '0.05em', transition: 'color 0.2s' }}
+          onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
+          onMouseLeave={e => (e.currentTarget.style.color = 'var(--text3)')}
+        >LinkedIn</a>
+        <span style={{ color: 'var(--border2)' }}>·</span>
         <a href="https://kaggle.com/ashirzaki" target="_blank" rel="noreferrer"
           style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text3)', textDecoration: 'none', letterSpacing: '0.05em', transition: 'color 0.2s' }}
           onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
           onMouseLeave={e => (e.currentTarget.style.color = 'var(--text3)')}
         >Kaggle</a>
         <span style={{ color: 'var(--border2)' }}>·</span>
-        <a href="mailto:asherzaki960@gmail.com"
+        <a href="mailto:info.hasher@gmail.com"
           style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text3)', textDecoration: 'none', letterSpacing: '0.05em', transition: 'color 0.2s' }}
           onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
           onMouseLeave={e => (e.currentTarget.style.color = 'var(--text3)')}
         >Email</a>
-        <span style={{ color: 'var(--border2)' }}>·</span>
-        <a href="https://wa.me/923049111104" target="_blank" rel="noreferrer"
-          style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text3)', textDecoration: 'none', letterSpacing: '0.05em', transition: 'color 0.2s' }}
-          onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
-          onMouseLeave={e => (e.currentTarget.style.color = 'var(--text3)')}
-        >WhatsApp</a>
       </div>
 
       <span style={{
@@ -68,7 +74,7 @@ export default function Footer() {
         padding: '4px 12px',
         letterSpacing: '0.07em',
       }}>
-        
+        Built with Next.js + React
       </span>
     </footer>
   )

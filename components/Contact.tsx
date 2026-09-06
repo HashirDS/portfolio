@@ -1,11 +1,13 @@
 'use client'
 
+import { Code2, GitBranch, Link, Mail, MessageCircle, Send } from 'lucide-react'
+
 const LINKS = [
-  { icon: '✉', label: 'asherzaki960@gmail.com', href: 'https://mail.google.com/mail/?view=cm&to=asherzaki960@gmail.com' },
-  { icon: '💬', label: '+92 304 911 1104', href: 'https://wa.me/923049111104' },
-  { icon: 'K', label: 'kaggle.com/ashirzaki', href: 'https://kaggle.com/ashirzaki' },
-  { icon: 'in', label: 'LinkedIn', href: 'https://www.linkedin.com/in/ashir-mehfooz-a7625231b/' },
-  { icon: 'GH', label: 'GitHub', href: 'https://github.com/HashirDS' },
+  { icon: Mail, label: 'Email', href: 'mailto:info.hasher@gmail.com', desc: 'info.hasher@gmail.com' },
+  { icon: Link, label: 'LinkedIn', href: 'https://www.linkedin.com/in/ashir-mehfooz-a7625231b/', desc: 'Connect with me' },
+  { icon: GitBranch, label: 'GitHub', href: 'https://github.com/HashirDS', desc: 'View my projects' },
+  { icon: MessageCircle, label: 'WhatsApp', href: 'https://wa.me/923049111104', desc: '+92 304 911 1104' },
+  { icon: Code2, label: 'Kaggle', href: 'https://kaggle.com/ashirzaki', desc: 'ML Competitions' },
 ]
 
 export default function Contact() {
@@ -20,6 +22,7 @@ export default function Contact() {
     >
       <div style={{ maxWidth: '1160px', margin: '0 auto', padding: '0 2rem' }}>
         <div
+          className="contact-card-inner"
           style={{
             background: 'var(--surface)',
             border: '1px solid var(--border)',
@@ -105,7 +108,7 @@ export default function Contact() {
               Open to data science, AI developer, and consulting roles. Also available for freelance projects.
             </p>
             <a
-              href="https://mail.google.com/mail/?view=cm&to=asherzaki960@gmail.com" target="_blank" rel="noreferrer"
+              href="mailto:info.hasher@gmail.com"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -132,11 +135,11 @@ export default function Contact() {
                 e.currentTarget.style.color = 'var(--bg)'
               }}
             >
-              Send an email ↗
+              Send an email <Send size={15} aria-hidden="true" />
             </a>
           </div>
 
-          {/* Right — contact links */}
+          {/* Right, contact links */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {LINKS.map((l) => (
               <a
@@ -173,7 +176,7 @@ export default function Contact() {
                     transition: 'border-color 0.2s',
                   }}
                 >
-                  {l.icon}
+                  <l.icon size={15} strokeWidth={1.8} aria-hidden="true" />
                 </div>
                 {l.label}
               </a>
