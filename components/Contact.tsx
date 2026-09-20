@@ -77,7 +77,6 @@ export default function Contact() {
                 gap: '8px',
               }}
             >
-              <span style={{ display: 'inline-block', width: '20px', height: '1px', background: 'var(--accent)' }} />
               Get in touch
             </div>
             <h2

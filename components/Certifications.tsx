@@ -22,8 +22,7 @@ export default function Certifications() {
       <div style={{ maxWidth: '1160px', margin: '0 auto', padding: '0 2.5rem' }}>
 
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-          <span style={{ display: 'inline-block', width: '20px', height: '1px', background: 'var(--accent)' }} />
+        <div style={{ marginBottom: '12px' }}>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--accent)', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
             Credentials
           </span>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { ArrowRight, Menu, Moon, Sun, X } from 'lucide-react'
+import { Menu, MessageCircle, Moon, Sun, X } from 'lucide-react'
 import { useTheme } from '@/hooks/useTheme'
 
 export default function Navbar() {
@@ -25,8 +25,8 @@ export default function Navbar() {
   const links = [
     { label: 'Home', href: '#home' },
     { label: 'Research', href: '#research' },
-    { label: 'Skills', href: '#skills' },
     { label: 'Experience', href: '#experience' },
+    { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
     { label: 'Awards', href: '#awards' },
     { label: 'Certifications', href: '#certifications' },
@@ -80,16 +80,13 @@ export default function Navbar() {
             }}>
               {theme === 'dark' ? <Sun size={16} aria-hidden="true" /> : <Moon size={16} aria-hidden="true" />}
             </button>
-            <a href="#contact" style={{
-              fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 600,
-              background: 'linear-gradient(135deg, var(--accent), var(--accent-purple))',
-              color: '#fff', padding: '9px 22px', borderRadius: '8px',
-              textDecoration: 'none', boxShadow: '0 0 18px rgba(56,189,248,0.25)',
-              transition: 'all 0.2s',
-            }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 0 28px rgba(56,189,248,0.45)' }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 0 18px rgba(56,189,248,0.25)' }}
-            >Contact <ArrowRight size={15} aria-hidden="true" /></a>
+            <a
+              href="#contact"
+              aria-label="Contact"
+              className="nav-icon-btn"
+            >
+              <MessageCircle size={18} strokeWidth={1.75} aria-hidden="true" />
+            </a>
           </div>
         )}
 
@@ -138,12 +135,15 @@ export default function Navbar() {
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--text2)')}
               >{link.label}</a>
             ))}
-            <a href="#contact" onClick={() => setMenuOpen(false)} style={{
-              marginTop: '12px', padding: '13px', borderRadius: '8px', textAlign: 'center',
-              background: 'linear-gradient(135deg, var(--accent), var(--accent-purple))',
-              color: '#fff', fontFamily: 'var(--font-sans)', fontSize: '14px', fontWeight: 600,
-              textDecoration: 'none',
-            }}>Contact <ArrowRight size={15} aria-hidden="true" /></a>
+            <a
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Contact"
+              className="nav-icon-btn"
+              style={{ marginTop: '12px', alignSelf: 'flex-start' }}
+            >
+              <MessageCircle size={18} strokeWidth={1.75} aria-hidden="true" />
+            </a>
           </div>
         </div>
       )}

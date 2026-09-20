@@ -1,5 +1,14 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
+
+const ROLE_TONES = [
+  'var(--accent)',
+  'var(--accent-purple)',
+  'var(--accent-warm)',
+  'var(--accent-green)',
+]
+
 const ROLES = [
   {
     company: 'Robx.AI',
@@ -64,9 +73,25 @@ const ROLES = [
 ]
 
 export default function Experience() {
+  const [on, setOn] = useState(false)
+  const ref = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setOn(true) },
+      { threshold: 0.12 }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
   return (
     <section
       id="experience"
+      ref={ref}
+      className={on ? 'reveal-on' : 'reveal-ready'}
       style={{
         position: 'relative',
         zIndex: 1,
@@ -88,7 +113,6 @@ export default function Experience() {
             gap: '8px',
           }}
         >
-          <span style={{ display: 'inline-block', width: '20px', height: '1px', background: 'var(--accent)' }} />
           Where I've worked
         </div>
         <h2
@@ -109,15 +133,18 @@ export default function Experience() {
         <div style={{ position: 'relative', paddingLeft: '28px' }}>
           <div className="timeline-line" />
 
-          {ROLES.map((r, i) => (
+          {ROLES.map((r, i) => {
+            const tone = ROLE_TONES[i % ROLE_TONES.length]
+            return (
             <div
               key={r.company}
+              className="reveal-item"
               style={{
                 position: 'relative',
                 marginBottom: i < ROLES.length - 1 ? '44px' : 0,
+                animationDelay: `${i * 160}ms`,
               }}
             >
-              {/* Dot */}
               <div
                 style={{
                   position: 'absolute',
@@ -126,9 +153,9 @@ export default function Experience() {
                   width: '8px',
                   height: '8px',
                   borderRadius: '50%',
-                  background: 'var(--accent)',
+                  background: tone,
                   border: '2px solid var(--bg)',
-                  boxShadow: '0 0 0 3px rgba(0,198,224,0.15)',
+                  boxShadow: `0 0 0 3px color-mix(in srgb, ${tone} 22%, transparent)`,
                 }}
               />
 
@@ -140,7 +167,7 @@ export default function Experience() {
                   padding: '22px 24px',
                   transition: 'border-color 0.2s',
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--border2)')}
+                onMouseEnter={(e) => (e.currentTarget.style.borderColor = tone)}
                 onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
               >
                 {/* Top row */}
@@ -158,7 +185,7 @@ export default function Experience() {
                       fontFamily: 'var(--font-sans)',
                       fontSize: '16px',
                       fontWeight: 600,
-                      color: 'var(--text)',
+                      color: tone,
                       letterSpacing: '-0.015em',
                     }}
                   >
@@ -225,7 +252,8 @@ export default function Experience() {
                 </ul>
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

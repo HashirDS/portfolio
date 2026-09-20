@@ -41,7 +41,6 @@ export default function Publications() {
               gap: '8px',
             }}
           >
-            <span style={{ display: 'inline-block', width: '20px', height: '1px', background: 'var(--accent)' }} />
             Research Focus
           </div>
           <h2
@@ -120,7 +119,6 @@ export default function Publications() {
               gap: '8px',
             }}
           >
-            <span style={{ display: 'inline-block', width: '20px', height: '1px', background: 'var(--accent)' }} />
             Publications
           </div>
           <h2

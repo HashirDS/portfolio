@@ -26,45 +26,14 @@ export default function Hero() {
     return () => clearTimeout(t)
   }, [charIndex, deleting, roleIndex])
 
-  const PhotoCard = ({ small = false }) => (
-    <div style={{ position: 'relative', width: small ? '160px' : '220px' }}>
-      <div style={{
-        width: small ? '160px' : '220px',
-        height: small ? '200px' : '280px',
-        borderRadius: '10px',
-        background: 'var(--surface)',
-        border: '2px solid var(--border2)',
-        overflow: 'hidden',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.25)',
-      }}>
-        <img className="hero-portrait" src="/menew.jpeg" alt="Asher Mehfooz in a formal suit" />
-      </div>
-
-      {/* Corner brackets, desktop only */}
-      {!small && [
-        { top:'-4px', left:'-4px', borderWidth:'2px 0 0 2px', borderRadius:'4px 0 0 0' },
-        { top:'-4px', right:'-4px', borderWidth:'2px 2px 0 0', borderRadius:'0 4px 0 0' },
-        { bottom:'-4px', left:'-4px', borderWidth:'0 0 2px 2px', borderRadius:'0 0 0 4px' },
-        { bottom:'-4px', right:'-4px', borderWidth:'0 2px 2px 0', borderRadius:'0 0 4px 0' },
-      ].map((corner, i) => (
-        <div key={i} style={{ position:'absolute', width:'16px', height:'16px', borderColor:'var(--accent)', borderStyle:'solid', opacity:0.5, ...corner }} />
-      ))}
-
-      {/* Name card */}
-      <div style={{ marginTop:'10px', background:'var(--card-bg)', border:'1px solid var(--border)', borderRadius:'8px', padding: small ? '10px 12px' : '12px 14px', position:'relative', overflow:'hidden' }}>
-        <div style={{ position:'absolute', top:0, left:0, right:0, height:'2px', background:'linear-gradient(90deg, var(--accent), var(--accent-purple))' }} />
-        <div style={{ fontFamily:'var(--font-sans)', fontSize: small?'12px':'13px', fontWeight:600, color:'var(--text)', marginBottom:'2px' }}>Asher Mehfooz</div>
-        <div style={{ fontFamily:'var(--font-mono)', fontSize: small?'9px':'10px', color:'var(--text3)', letterSpacing:'0.04em' }}>AI Developer & Data Scientist</div>
-        <div style={{ fontFamily:'var(--font-mono)', fontSize: small?'9px':'10px', color:'var(--accent-green)', marginTop:'5px', display:'flex', alignItems:'center', gap:'4px' }}>
-          <span className="status-dot" style={{ width:'5px', height:'5px', borderRadius:'50%', background:'var(--accent-green)', display:'inline-block' }} />
-          Available for work
-        </div>
-      </div>
-
-      {/* Floating tags, desktop only */}
-      
-    </div>
+  const Portrait = () => (
+    <figure className="hero-portrait-stage">
+      <img
+        className="hero-portrait"
+        src="/menew.jpeg"
+        alt="Asher Mehfooz"
+      />
+    </figure>
   )
 
   return (
@@ -73,7 +42,7 @@ export default function Hero() {
 
         {/* MOBILE PHOTO, shown only on mobile via CSS */}
         <div className="hero-photo-mobile">
-          <PhotoCard small={true} />
+          <Portrait />
         </div>
 
         {/* ── LEFT TEXT ── */}
@@ -142,10 +111,8 @@ export default function Hero() {
         </div>
 
         {/* DESKTOP PHOTO, hidden on mobile via CSS */}
-        <div className="hero-photo-desktop" style={{ position:'relative', justifyContent:'center', alignItems:'flex-start', paddingTop:'8px' }}>
-          <div className="ring-animate" style={{ position:'absolute', inset:'-10px', borderRadius:'14px', border:'1px solid var(--accent)', pointerEvents:'none' }} />
-          <div className="ring-animate-2" style={{ position:'absolute', inset:'-22px', borderRadius:'18px', border:'1px solid var(--accent-purple)', pointerEvents:'none' }} />
-          <PhotoCard small={false} />
+        <div className="hero-photo-desktop">
+          <Portrait />
         </div>
 
       </div>

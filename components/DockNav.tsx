@@ -18,8 +18,8 @@ const ITEMS = [
   { id: 'home', label: 'Home', href: '#home', Icon: House },
   { id: 'research', label: 'Research', href: '#research', Icon: FlaskConical },
   { id: 'projects', label: 'Projects', href: '#projects', Icon: Briefcase },
-  { id: 'skills', label: 'Skills', href: '#skills', Icon: Sparkles },
   { id: 'experience', label: 'Experience', href: '#experience', Icon: Wrench },
+  { id: 'skills', label: 'Skills', href: '#skills', Icon: Sparkles },
   { id: 'awards', label: 'Awards', href: '#awards', Icon: Trophy },
   { id: 'contact', label: 'Contact', href: '#contact', Icon: MessageCircle },
 ] as const
