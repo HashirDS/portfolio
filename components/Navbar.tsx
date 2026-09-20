@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { ArrowRight, Menu, Moon, Sun, X } from 'lucide-react'
+import { useTheme } from '@/hooks/useTheme'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [theme, setTheme] = useState<'dark'|'light'>('dark')
+  const { theme, toggle } = useTheme()
   const [isMobile, setIsMobile] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -21,15 +22,10 @@ export default function Navbar() {
     return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onResize) }
   }, [])
 
-  const toggleTheme = () => {
-    const next = theme === 'dark' ? 'light' : 'dark'
-    setTheme(next)
-    document.documentElement.setAttribute('data-theme', next)
-  }
-
   const links = [
     { label: 'Home', href: '#home' },
     { label: 'Research', href: '#research' },
+    { label: 'Skills', href: '#skills' },
     { label: 'Experience', href: '#experience' },
     { label: 'Projects', href: '#projects' },
     { label: 'Awards', href: '#awards' },
@@ -75,7 +71,7 @@ export default function Navbar() {
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--text2)')}
               >{link.label}</a>
             ))}
-            <button onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} style={{
+            <button onClick={toggle} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} style={{
               width: '34px', height: '34px', borderRadius: '8px',
               border: '1px solid var(--border2)', background: 'var(--surface)',
               cursor: 'pointer', fontSize: '15px',
@@ -100,7 +96,7 @@ export default function Navbar() {
         {/* Mobile right side */}
         {isMobile && (
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <button onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} style={{
+            <button onClick={toggle} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} style={{
               width: '34px', height: '34px', borderRadius: '8px',
               border: '1px solid var(--border2)', background: 'var(--surface)',
               cursor: 'pointer', fontSize: '14px',

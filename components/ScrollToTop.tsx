@@ -15,10 +15,11 @@ export default function ScrollToTop() {
 
   return (
     <button
+      className="scroll-top-btn"
       onClick={scrollUp}
       aria-label="Scroll to top"
       style={{
-        position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 300,
+        position: 'fixed', bottom: '6.5rem', right: '1.4rem', zIndex: 300,
         width: '44px', height: '44px', borderRadius: '10px',
         background: 'linear-gradient(135deg, var(--accent), var(--accent-purple))',
         border: 'none', cursor: 'pointer', color: '#fff',
