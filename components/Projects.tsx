@@ -261,16 +261,47 @@ export default function Projects() {
   return (
     <section id="projects" style={{ position: 'relative', zIndex: 1, padding: '80px 0 120px' }}>
       <div style={{ maxWidth: '1160px', margin: '0 auto', padding: '0 2rem' }}>
-        <h2 className="sr-only">Projects</h2>
+        <div
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '11px',
+            color: 'var(--accent)',
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            marginBottom: '12px',
+          }}
+        >
+          Selected work
+        </div>
         <div
           style={{
             display: 'flex',
-            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
+            justifyContent: 'space-between',
+            gap: '16px',
             flexWrap: 'wrap',
-            gap: '8px',
-            marginBottom: '24px',
+            marginBottom: '36px',
           }}
         >
+          <h2
+            style={{
+              fontSize: 'clamp(26px, 3.5vw, 40px)',
+              fontWeight: 700,
+              letterSpacing: '-0.025em',
+              color: 'var(--text)',
+              lineHeight: 1.1,
+            }}
+          >
+            Featured{' '}
+            <span style={{ color: 'var(--accent-purple)' }}>Projects</span>
+          </h2>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '8px',
+            }}
+          >
           {FILTERS.map((f) => (
             <button
               key={f}
@@ -293,6 +324,7 @@ export default function Projects() {
               {f}
             </button>
           ))}
+          </div>
         </div>
 
         <div className="projects-grid-wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
