@@ -38,7 +38,7 @@ export default function Hero() {
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         boxShadow: '0 20px 60px rgba(0,0,0,0.25)',
       }}>
-        <img className="hero-portrait" src="/pic1.jpeg" alt="Asher Mehfooz in a formal suit" />
+        <img className="hero-portrait" src="/menew.jpeg" alt="Asher Mehfooz in a formal suit" />
       </div>
 
       {/* Corner brackets, desktop only */}
@@ -63,16 +63,7 @@ export default function Hero() {
       </div>
 
       {/* Floating tags, desktop only */}
-      {!small && <>
-        <div className="float-2 hero-medal-tag">
-          <Medal size={16} strokeWidth={1.8} aria-hidden="true" />
-          Gold Medal
-        </div>
-        <div className="float-1 hero-photo-secondary">
-          <img src="/pic2.jpeg" alt="Asher Mehfooz outdoors" />
-          <span>Beyond the build</span>
-        </div>
-      </>}
+      
     </div>
   )
 
